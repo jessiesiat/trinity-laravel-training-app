@@ -1,3 +1,3 @@
-# App Made on Laravel Training
+# School colleges and students portal
 
 soon...
