@@ -42,12 +42,14 @@ class DepartmentsController extends Controller
         return redirect()->route('departments.index');
     }
 
-    public function edit(Department $dept, Request $request) 
+    public function edit($deptId, Request $request) 
     {
-    	return view('departments.edit')->with('dept', $dept);
+        $department = Department::find($deptId);
+
+    	return view('departments.edit')->with('department', $department);
     }
 
-    public function update(Department $dept, Request $request) 
+    public function update($deptId, Request $request) 
     {
     	$validator = Validator::make($request->all(), [
             'name' => 'required|unique:departments,name,'.$dept->name,
@@ -59,6 +61,7 @@ class DepartmentsController extends Controller
                         ->withInput();
         }
 
+        $dept = Department::find($deptId);
         $dept->name = $request->name;
         $dept->desription = $request->desription;
         $dept->save();
@@ -66,8 +69,9 @@ class DepartmentsController extends Controller
         return redirect()->route('departments.index');
     }
 
-    public function destroy(Department $dept) 
+    public function destroy($deptId) 
     {
+        $dept = Department::find($deptId);
     	$dept->delete();
 
     	return redirect()->back();
