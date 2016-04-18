@@ -5,9 +5,12 @@
 	<title>Laravel Training</title>
 	<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
 	<style>
-	/*body {
-		margin-top: 35px;
-	}*/
+	body {
+		/*padding:;*/
+	}
+	table form {
+		display: inline-block;
+	}
 	</style>
 </head>
 <body>
@@ -31,7 +34,9 @@
 	  </div>
 	</nav>
 	
-	@yield('content')
+	<div class="container">
+		@yield('content')
+	</div>
 
 </body>
 </html>

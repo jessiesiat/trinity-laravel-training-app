@@ -51,6 +51,8 @@ class DepartmentsController extends Controller
 
     public function update($deptId, Request $request) 
     {
+        $dept = Department::find($deptId);
+        
     	$validator = Validator::make($request->all(), [
             'name' => 'required|unique:departments,name,'.$dept->name,
         ]);
@@ -61,9 +63,8 @@ class DepartmentsController extends Controller
                         ->withInput();
         }
 
-        $dept = Department::find($deptId);
         $dept->name = $request->name;
-        $dept->desription = $request->desription;
+        $dept->description = $request->description;
         $dept->save();
 
         return redirect()->route('departments.index');
