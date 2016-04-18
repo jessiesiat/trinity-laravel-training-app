@@ -17,7 +17,11 @@
 			<td>{{$dept->updated_at}}</td>
 			<td>
 				<a href="{{route('departments.edit', $dept->id)}}" class="btn btn-xs btn-info">Edit</a>
-				<a href="#" class="btn btn-xs btn-danger">Delete</a>
+				<form action="{{route('departments.destroy', $dept)}}" method="post">
+					{!! csrf_field() !!}
+					<input type="hidden" name="_method" value="delete">
+					<button onclick="return confirm('Are you sure?')" type="submit" class="btn btn-danger btn-xs">Delete</button>
+				</form>
 			</td>
 		</tr>
 		@endforeach
