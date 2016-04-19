@@ -27,3 +27,14 @@ Route::group(['prefix' => 'departments'], function() {
 
 });
 
+Route::group(['prefix' => 'students'], function() {
+
+	Route::get('/', 'StudentsController@index')->name('students.index');
+	Route::get('create', 'StudentsController@create')->name('students.create');
+	Route::post('/', 'StudentsController@store')->name('students.store');
+	Route::get('{student}', 'StudentsController@show')->name('students.show');
+	Route::get('{student}/edit', 'StudentsController@edit')->name('students.edit');
+	Route::put('{student}', 'StudentsController@update')->name('students.update');
+	Route::delete('{student}', 'StudentsController@destroy')->name('students.destroy');
+
+});

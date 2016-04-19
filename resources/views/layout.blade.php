@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
 	<style>
 	body {
-		/*padding:;*/
+		padding-bottom: 70px;
 	}
 	table form {
 		display: inline-block;
@@ -28,8 +28,9 @@
 	    </div>
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
-	        <li class="active"><a href="{{route('departments.index')}}">Departments</a></li>
-	        <li><a href="#">Students</a></li>
+	        <li {{ Request::is('departments*') ? 'class=active' : '' }}><a href="{{route('departments.index')}}">Departments</a></li>
+	        <li {{ Request::is('students*') ? 'class=active' : '' }}><a href="{{route('students.index')}}">Students</a></li>
+	      </ul>
 	    </div>
 	  </div>
 	</nav>

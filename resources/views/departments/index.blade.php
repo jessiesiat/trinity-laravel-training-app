@@ -2,7 +2,10 @@
 
 @section('content')
 
-<h1>Departments</h1>
+<h1>
+Departments
+<a href="{{route('departments.create')}}" class="btn btn-xs btn-primary">Add</a>
+</h1>
 
 <table class="table">
 	<thead>
