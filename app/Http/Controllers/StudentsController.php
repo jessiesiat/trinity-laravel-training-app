@@ -9,11 +9,21 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class StudentsController extends Controller
 {
-    public function index() 
+    public function index(Request $request) 
     {
-    	$students = Student::get();
+    	$query = new Student;
 
-        return view('students.index', compact('students'));
+        if ($request->has('name')) {
+            $query = $query->where('name', 'like', '%'.$request->name.'%');
+        }
+
+        $query = [
+            'name' => $request->name,
+        ];
+
+        $students = $query->paginate(10);
+
+        return view('students.index', compact('students', 'query'));
     }
 
     public function create() 
