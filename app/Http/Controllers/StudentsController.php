@@ -17,11 +17,11 @@ class StudentsController extends Controller
             $query = $query->where('name', 'like', '%'.$request->name.'%');
         }
 
+        $students = $query->paginate(10);
+        
         $query = [
             'name' => $request->name,
         ];
-
-        $students = $query->paginate(10);
 
         return view('students.index', compact('students', 'query'));
     }
