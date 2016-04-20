@@ -6,10 +6,10 @@
 Departments
 <a href="{{route('departments.create')}}" class="btn btn-xs btn-primary">Add</a>
 </h1>
-
+<hr>
 <table class="table">
 	<thead>
-		<tr><th>Name</th><th>Description</th><th>Created At</th><th>Updated At</th><th></th></tr>
+		<tr><th>Name</th><th>Description</th><th>Created At</th><th>Updated At</th><th>Actions</th></tr>
 	</thead>
 	<tbody>
 		@foreach($departments as $dept)

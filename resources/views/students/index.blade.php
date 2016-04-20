@@ -3,13 +3,13 @@
 @section('content')
 
 <h1>
-Students
-<a href="{{route('students.create')}}" class="btn btn-xs btn-primary">Add</a>
+	Students
+	<a href="{{route('students.create')}}" class="btn btn-xs btn-primary">Add</a>
 </h1>
-
-<table class="table">
+<hr>
+<table class="table table-condensed table-striped">
 	<thead>
-		<tr><th colspan="2">Name</th><th>Department</th><th>Address</th><th>Contact No.</th><th>Updated At</th><th></th></tr>
+		<tr><th colspan="2">Name</th><th>Department</th><th>Address</th><th>Contact No.</th><th width="105">Actions</th></tr>
 	</thead>
 	<tbody>
 		@foreach($students as $student)
@@ -35,5 +35,7 @@ Students
 		@endforeach
 	</tbody>
 </table>
+
+{!! $students->links() !!}
 
 @stop
