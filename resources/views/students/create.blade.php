@@ -4,6 +4,14 @@
 
 <h1>Add Student</h1>
 
+@if(count($errors) > 0)
+<div class="alert alert-danger" role="alert">
+	@foreach($errors->all() as $error)
+	<div class="">{{$error}}</div>
+	@endforeach
+</div>
+@endif
+
 <form action="{{ route('students.store') }}" method="post" enctype="multipart/form-data">
 	{!! csrf_field() !!}
 	<div class="form-group">

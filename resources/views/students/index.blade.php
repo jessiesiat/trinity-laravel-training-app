@@ -4,8 +4,15 @@
 
 <h1>
 	Students
-	<a href="{{route('students.create')}}" class="btn btn-xs btn-primary">Add</a>
+	<a href="{{route('students.create')}}" class="btn btn-sm btn-primary">Add</a>
 </h1>
+<form action="" method="get" class="form-inline">
+	<div class="form-group">
+	    <label for="name" class="sr-only">Name</label>
+	    <input type="text" name="name" class="form-control" value="{{$query['name']}}" id="name" placeholder="Enter name">
+	</div>
+	<button class="btn btn-default" type="submit">Filter</button>
+</form>
 <hr>
 <table class="table table-condensed table-striped">
 	<thead>
